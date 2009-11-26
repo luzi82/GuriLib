@@ -17,7 +17,7 @@ abstract public class AnimationUnitCanvas extends UnitCanvas {
 
 	private final ScheduledThreadPoolExecutor executor;
 
-	private ScheduledFuture repaintFuture;
+	private ScheduledFuture<?> repaintFuture;
 
 	/**
 	 * to store the repainting should be stopped. no effect when the repainting

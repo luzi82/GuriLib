@@ -37,7 +37,7 @@ public class UnitLayering implements Unit {
 		sprites[layer] = e;
 	}
 
-	public void setUnit(Enum layer, Unit e) {
+	public void setUnit(Enum<?> layer, Unit e) {
 		setUnit(layer.ordinal(), e);
 	}
 
@@ -45,7 +45,7 @@ public class UnitLayering implements Unit {
 		visible[layer] = b;
 	}
 
-	public void setVisible(Enum layer, boolean b) {
+	public void setVisible(Enum<?> layer, boolean b) {
 		setVisible(layer.ordinal(), b);
 	}
 
@@ -53,7 +53,7 @@ public class UnitLayering implements Unit {
 		return visible[layer];
 	}
 
-	public boolean visible(Enum layer) {
+	public boolean visible(Enum<?> layer) {
 		return visible(layer.ordinal());
 	}
 
