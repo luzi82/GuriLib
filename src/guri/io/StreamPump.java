@@ -16,7 +16,7 @@ import java.io.OutputStream;
  */
 public class StreamPump implements Runnable {
 
-	private static final int BUFFER_SIZE = 1024;
+	private static final int BUFFER_SIZE = 4096;
 
 	private final InputStream _is;
 
