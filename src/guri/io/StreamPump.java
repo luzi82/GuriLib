@@ -4,6 +4,8 @@
  */
 package guri.io;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -16,7 +18,7 @@ import java.io.OutputStream;
  */
 public class StreamPump implements Runnable {
 
-	private static final int BUFFER_SIZE = 1024;
+	private static final int BUFFER_SIZE = 4096;
 
 	private final InputStream _is;
 
@@ -80,6 +82,17 @@ public class StreamPump implements Runnable {
 	static public void pump(InputStream is, OutputStream os) {
 		StreamPump __sp = new StreamPump(is, os);
 		__sp.run();
+	}
+	
+	static public byte[] pumpToByteArray(InputStream is){
+		ByteArrayOutputStream baos=new ByteArrayOutputStream();
+		pump(is, baos);
+		try {
+			baos.close();
+		} catch (IOException e) {
+			throw new Error(e);
+		}
+		return baos.toByteArray();
 	}
 
 }
